@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router';
 import { motion, AnimatePresence } from 'motion/react';
 import { Layers, Activity, AlertTriangle, ShieldCheck, ArrowRight, CheckCircle, UploadCloud, X } from 'lucide-react';
 import { toast } from 'sonner';
@@ -10,6 +11,7 @@ import DashboardPreview from '../components/DashboardPreview';
 import LeadModal from '../components/LeadModal';
 
 export default function LandingPage() {
+  const navigate = useNavigate();
   const [showModal, setShowModal] = useState(false);
   const [hasScrolled, setHasScrolled] = useState(false);
 
@@ -89,7 +91,7 @@ export default function LandingPage() {
               className="flex flex-col sm:flex-row gap-4 pt-4"
             >
               <button 
-                onClick={() => setShowModal(true)}
+                onClick={() => navigate('/dashboard')}
                 className="group px-8 py-4 rounded-full bg-white text-black font-semibold hover:bg-gray-200 transition-all flex items-center justify-center gap-2"
                 data-deploy-ready="true"
               >
@@ -242,7 +244,7 @@ export default function LandingPage() {
               <p className="text-gray-400 max-w-xl">A complete view of your practice's health. Monitor risk levels, pending reviews, and revenue impact.</p>
             </div>
             <button 
-              onClick={() => setShowModal(true)}
+              onClick={() => navigate('/dashboard')}
               className="px-6 py-3 rounded-full bg-[#3b82f6] text-white font-medium hover:bg-[#2563eb] transition-colors whitespace-nowrap"
             >
               View Full Demo
