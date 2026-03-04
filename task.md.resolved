@@ -1,0 +1,11 @@
+# Extend Website to 5-Face Dashboard
+
+- [x] Plan website extension
+- [x] Add 4 new pages
+    - [x] Evidence Pack
+    - [x] Risk Radar
+    - [x] Creator Feed
+    - [x] Opportunity Scanner
+- [x] Implement universal polling API pattern
+- [x] Update Navigation to 5 tabs
+- [x] Commit and push to deploy

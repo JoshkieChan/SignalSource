@@ -1,0 +1,40 @@
+# Extend Website to 5-Face Dashboard Plan
+
+## Overview
+The goal is to extend the current React application to support a 5-tab dashboard. The current app is a single landing page ([App.tsx](file:///Users/joshkie/Library/CloudStorage/Dropbox/SignalSource/src/app/App.tsx)), and the routing ([routes.tsx](file:///Users/joshkie/Library/CloudStorage/Dropbox/SignalSource/src/app/routes.tsx)) is actually not hooked up in [main.tsx](file:///Users/joshkie/Library/CloudStorage/Dropbox/SignalSource/src/main.tsx). We will properly wire up React Router, preserve the landing page, and create a new dashboard area with the 5 distinct tools.
+
+## Proposed Changes
+
+### 1. Routing Setup & Layout ([src/main.tsx](file:///Users/joshkie/Library/CloudStorage/Dropbox/SignalSource/src/main.tsx), [src/app/routes.tsx](file:///Users/joshkie/Library/CloudStorage/Dropbox/SignalSource/src/app/routes.tsx))
+- **Modify** [main.tsx](file:///Users/joshkie/Library/CloudStorage/Dropbox/SignalSource/src/main.tsx) to use `RouterProvider` with [routes.tsx](file:///Users/joshkie/Library/CloudStorage/Dropbox/SignalSource/src/app/routes.tsx) instead of directly rendering `<App />`. 
+- **Modify** [routes.tsx](file:///Users/joshkie/Library/CloudStorage/Dropbox/SignalSource/src/app/routes.tsx) to point `/` to the existing landing page ([App.tsx](file:///Users/joshkie/Library/CloudStorage/Dropbox/SignalSource/src/app/App.tsx)).
+- **Create** a new `/dashboard` route that serves as the layout for the 5-face dashboard.
+
+### 2. Dashboard Layout (`src/app/pages/Dashboard.tsx`)
+- **Create** the Dashboard layout component containing the 5 main navigation tabs: `[Medical Audit]`, `[Evidence]`, `[Risk Radar]`, `[Creator Feed]`, `[Opportunities]`.
+- The layout will render the corresponding child component based on the active tab (either via nested routes or local state).
+
+### 3. Medical Audit Page (`src/app/pages/MedicalAudit.tsx`)
+- **Extract** the existing `AuditSimulator` and `DashboardPreview` components from the landing page to serve as the "Medical Audit" tab within the new dashboard layout.
+- We will ensure this keeps the existing functionality exactly as it is today.
+
+### 4. New Pages (`src/app/pages/{EvidencePack,RiskRadar,CreatorFeed,OpportunityScanner}.tsx`)
+For each of the 4 new faces, we will create a dedicated component following the universal polling pattern:
+- **Evidence Pack**: Form with encounter IDs textarea.
+- **Risk Radar**: Form with CSV URLs and platform checkboxes.
+- **Creator Feed**: Form with CSV URLs and platform checkboxes.
+- **Opportunity Scanner**: Form with dropdowns for country, state, business type, etc.
+- All forms will POST to `https://your-rcw-automation-api.com/v1/{face}/jobs`, get a `job_id`, poll every 2s for 60s, and display results.
+
+### 5. API Polling Hook (`src/app/lib/usePolling.ts`)
+- **Create** a reusable custom hook `usePolling` to handle the `POST -> job_id -> GET poll` logic with standard loading/error states and the `X-Tenant-ID: demo-tenant` header.
+
+## Verification Plan
+
+### Manual Verification
+1. Run the local dev server using `npm run dev`.
+2. Visit `http://localhost:5173/` to ensure the landing page is still intact.
+3. Navigate to `http://localhost:5173/dashboard` (or click a "Try Demo" button on the landing page) to see the 5-tab navigation.
+4. Click through all 5 tabs to ensure forms render correctly.
+5. On the Risk Radar page, submit the form and confirm the loading spinner appears and a polling request is made to the backend. Note: since the backend might not exist or return 404, we expect to see an error after polling or a graceful failure message.
+6. Verify the Creator Feed results display layout (using mock data if the API fails, to ensure styling matches user expectations).

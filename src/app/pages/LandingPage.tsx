@@ -72,7 +72,7 @@ export default function LandingPage() {
               transition={{ duration: 0.6, delay: 0.1 }}
               className="text-5xl md:text-7xl font-bold tracking-tight leading-[1.1]"
             >
-              AI systems that make <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#3b82f6] to-[#10b981]">complex work simpler.</span>
+              SignalSource: AI systems that <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#3b82f6] to-[#10b981]">protect and grow your business.</span>
             </motion.h1>
             
             <motion.p 
@@ -81,7 +81,7 @@ export default function LandingPage() {
               transition={{ duration: 0.6, delay: 0.2 }}
               className="text-xl text-gray-400 max-w-lg leading-relaxed"
             >
-              Audit‑prep and risk screening for small medical practices. SignalSource builds focused AI tools that turn messy workflows into simple dashboards.
+              A unified platform featuring 5 modules: Medical Audit, Evidence Packs, Risk Radar, Creator Feed, and Opportunity Scanner. Designed for modern businesses navigating 2026 challenges.
             </motion.p>
             
             <motion.div 
@@ -95,7 +95,7 @@ export default function LandingPage() {
                 className="group px-8 py-4 rounded-full bg-white text-black font-semibold hover:bg-gray-200 transition-all flex items-center justify-center gap-2"
                 data-deploy-ready="true"
               >
-                Start Free Audit
+                Open Dashboard
                 <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
               </button>
               <button 
@@ -117,106 +117,69 @@ export default function LandingPage() {
         <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-[#10b981]/10 rounded-full blur-[120px] -z-10 pointer-events-none" />
       </section>
 
-      {/* Bento Grid Features */}
+      {/* Platform Modules */}
       <section id="product" className="py-24 px-6 bg-[#0a0a0a]">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-5xl font-bold mb-6">Built for precision.</h2>
-            <p className="text-gray-400 max-w-2xl mx-auto">Our first product helps small clinics see documentation gaps, risky encounters, and compliance tasks in one place.</p>
+            <h2 className="text-3xl md:text-5xl font-bold mb-6">Five Powerful Modules.</h2>
+            <p className="text-gray-400 max-w-2xl mx-auto">
+               SignalSource provides targeted tools that may qualify you for new funding, or can help identify compliance and revenue risks before they escalate.
+            </p>
           </div>
           
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 auto-rows-[300px]">
-            {/* Feature 1: Large */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             <motion.div 
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              className="md:col-span-2 row-span-1 rounded-3xl bg-white/5 border border-white/10 p-8 relative overflow-hidden group hover:border-white/20 transition-colors"
+              className="rounded-3xl bg-white/5 border border-white/10 p-8 hover:border-white/20 transition-colors"
             >
-              <div className="relative z-10 h-full flex flex-col justify-between">
-                <div>
-                  <div className="w-12 h-12 rounded-2xl bg-[#3b82f6]/20 flex items-center justify-center mb-4 text-[#3b82f6]">
-                    <Layers className="w-6 h-6" />
-                  </div>
-                  <h3 className="text-2xl font-bold mb-2">Unified Dashboard</h3>
-                  <p className="text-gray-400">All your clinical data normalized into one clean view.</p>
-                </div>
-              </div>
-              <div className="absolute top-1/2 right-0 w-2/3 h-full translate-x-1/4 translate-y-12 md:translate-y-8 opacity-50 group-hover:opacity-80 transition-opacity duration-500">
-                <DashboardPreview mini />
-              </div>
+              <h3 className="text-xl font-bold mb-3 text-[#10b981]">Opportunity Scanner</h3>
+              <p className="text-gray-400 leading-relaxed text-sm">Scans current small‑business grants, tax credits, and incentives (e.g., SBA and corporate programs) to highlight money you may qualify for.</p>
             </motion.div>
-
-            {/* Feature 2: Compliance */}
+            
             <motion.div 
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: 0.1 }}
-              className="rounded-3xl bg-white/5 border border-white/10 p-8 relative overflow-hidden group hover:border-white/20 transition-colors"
+              className="rounded-3xl bg-white/5 border border-white/10 p-8 hover:border-white/20 transition-colors"
             >
-              <div className="w-12 h-12 rounded-2xl bg-[#10b981]/20 flex items-center justify-center mb-4 text-[#10b981]">
-                <ShieldCheck className="w-6 h-6" />
-              </div>
-              <h3 className="text-2xl font-bold mb-2">Risk Screening</h3>
-              <p className="text-gray-400">Automated checks against latest compliance rules.</p>
-              
-              <div className="absolute bottom-4 right-4 flex gap-2">
-                 <div className="px-3 py-1 rounded-full bg-[#10b981]/20 text-[#10b981] text-xs font-bold border border-[#10b981]/30">Passed</div>
-                 <div className="px-3 py-1 rounded-full bg-red-500/20 text-red-400 text-xs font-bold border border-red-500/30">Flagged</div>
-              </div>
+              <h3 className="text-xl font-bold mb-3 text-red-400">Risk Radar</h3>
+              <p className="text-gray-400 leading-relaxed text-sm">Analyzes Stripe/Shopify payments to spot rising chargebacks and processor risk, reflecting current 2026 payment challenges.</p>
             </motion.div>
-
-            {/* Feature 3: Real-time */}
+            
             <motion.div 
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: 0.2 }}
-              className="rounded-3xl bg-white/5 border border-white/10 p-8 relative overflow-hidden group hover:border-white/20 transition-colors"
+              className="rounded-3xl bg-white/5 border border-white/10 p-8 hover:border-white/20 transition-colors"
             >
-              <div className="w-12 h-12 rounded-2xl bg-purple-500/20 flex items-center justify-center mb-4 text-purple-400">
-                <Activity className="w-6 h-6" />
-              </div>
-              <h3 className="text-2xl font-bold mb-2">Real-time Analysis</h3>
-              <p className="text-gray-400">Instant feedback on encounter notes as you type.</p>
+              <h3 className="text-xl font-bold mb-3 text-purple-400">Creator Feed</h3>
+              <p className="text-gray-400 leading-relaxed text-sm">Turns creator analytics into a short action list, in a 2026 creator economy where digital products and memberships are major income sources.</p>
             </motion.div>
 
-            {/* Feature 4: Integration */}
             <motion.div 
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: 0.3 }}
-              className="md:col-span-2 rounded-3xl bg-white/5 border border-white/10 p-8 relative overflow-hidden group hover:border-white/20 transition-colors flex flex-col md:flex-row items-center gap-8"
+              className="rounded-3xl bg-white/5 border border-white/10 p-8 hover:border-white/20 transition-colors lg:col-span-1 md:col-span-2 lg:col-start-1"
             >
-              <div className="flex-1">
-                <div className="w-12 h-12 rounded-2xl bg-orange-500/20 flex items-center justify-center mb-4 text-orange-400">
-                  <UploadCloud className="w-6 h-6" />
-                </div>
-                <h3 className="text-2xl font-bold mb-2">Seamless Integration</h3>
-                <p className="text-gray-400">Connects directly with your existing EHR systems. Placeholder integration ready for Supabase & Airtable.</p>
-              </div>
-              <div className="flex-1 w-full p-4 rounded-xl bg-black/40 border border-white/5 font-mono text-xs text-gray-500">
-                <div className="flex justify-between border-b border-white/5 pb-2 mb-2">
-                  <span>API Status</span>
-                  <span className="text-green-400">Connected</span>
-                </div>
-                <div className="space-y-1">
-                  <div className="flex gap-2">
-                    <span className="text-blue-400">{`>`}</span>
-                    <span>Initializing sync...</span>
-                  </div>
-                  <div className="flex gap-2">
-                    <span className="text-blue-400">{`>`}</span>
-                    <span>Fetching patient records...</span>
-                  </div>
-                  <div className="flex gap-2">
-                    <span className="text-blue-400">{`>`}</span>
-                    <span className="text-white">Analysis complete (0.4s)</span>
-                  </div>
-                </div>
-              </div>
+              <h3 className="text-xl font-bold mb-3 text-[#3b82f6]">Medical Audit</h3>
+              <p className="text-gray-400 leading-relaxed text-sm">Reviews clinical documentation against modern compliance standards, which can help identify potential chart deficiencies before payer audits.</p>
+            </motion.div>
+
+            <motion.div 
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.4 }}
+              className="rounded-3xl bg-white/5 border border-white/10 p-8 hover:border-white/20 transition-colors lg:col-span-2 md:col-span-2"
+            >
+              <h3 className="text-xl font-bold mb-3 text-gray-200">Evidence Packs</h3>
+              <p className="text-gray-400 leading-relaxed text-sm">Compiles encounter narratives and necessary documentation into clean PDFs that can help support your claims and defend against disputes.</p>
             </motion.div>
           </div>
         </div>
